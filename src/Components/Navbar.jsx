@@ -1,5 +1,11 @@
-import React from 'react';
-
-export const Navbar = () => {
-	return <div>Navbar</div>;
+const Navbar = () => {
+	return (
+		<div className='navbar-container'>
+			<div>Search</div>
+			<div>Home</div>
+			<div>Random</div>
+		</div>
+	);
 };
+
+export default Navbar;
