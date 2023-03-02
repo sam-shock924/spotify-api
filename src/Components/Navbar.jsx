@@ -1,9 +1,12 @@
+import {NavLink} from 'react-router-dom';
+import Header from './Header';
+
 const Navbar = () => {
 	return (
 		<div className='navbar-container'>
-			<div>Search</div>
-			<div>Home</div>
-			<div>Random</div>
+			<Header />
+			<NavLink to='/search'>Search</NavLink>
+			<NavLink to='/random'>Random</NavLink>
 		</div>
 	);
 };
