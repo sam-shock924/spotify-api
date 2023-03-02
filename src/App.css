@@ -36,3 +36,8 @@ body {
 .navbar-container a.active {
   color: var(--primary);
 }
+
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+}
