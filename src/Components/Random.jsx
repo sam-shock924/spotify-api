@@ -1,5 +1,9 @@
 const Random = () => {
-	return <div>Random</div>;
+	return (
+		<div>
+			<h1>Random Page</h1>
+		</div>
+	);
 };
 
 export default Random;
