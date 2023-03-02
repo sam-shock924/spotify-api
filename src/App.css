@@ -1,6 +1,6 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  /* max-width: 1280px; */
+  /* margin: 0 auto; */
   padding: 1rem;
   text-align: center;
   font-family: 'Figtree', sans-serif;
@@ -15,6 +15,7 @@ body {
   display: flex;
   justify-content: end;
   gap: 25px;
+  font-size: 25px;
 }
 
 .header-component {
@@ -25,6 +26,7 @@ body {
 #header-logo {
   height: 25px;
   width: 25px;
+  padding: 5px;
 }
 
 .navbar-container a {
@@ -37,7 +39,20 @@ body {
   color: var(--primary);
 }
 
-main {
-  max-width: 1200px;
-  margin: 40px auto;
+.card-stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.artist-card {
+  width: 25%;
+  border: 2px solid var(--primary);
+  border-radius: 20px;
+  margin: 1.5em;
+  padding: 15px;
+}
+
+#card-img {
+  width: 85%
 }
