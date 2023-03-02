@@ -3,6 +3,12 @@
   margin: 0 auto;
   padding: 1rem;
   text-align: center;
+  font-family: 'Figtree', sans-serif;
+}
+
+body {
+  background: var(--secondary);
+  color: white;
 }
 
 .header-container {
@@ -23,11 +29,6 @@
 }
 
 .navbar-container {
-    /* display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px; */
     display: flex;
-    
+    justify-content: space-evenly;
   }
