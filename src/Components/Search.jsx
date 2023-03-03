@@ -14,7 +14,7 @@ const Search = () => {
 					<option value='song'>Song</option>
 				</select>
 			</div>
-			<Cardstack />
+			{/* <Cardstack /> */}
 		</div>
 	);
 };

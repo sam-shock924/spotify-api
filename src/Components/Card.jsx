@@ -5,8 +5,8 @@ const ArtistCard = ({title, subtitle}) => {
 		<div className='artist-card'>
 			<Card>
 				<Card.Body>
-					<Card.Title>{title}</Card.Title>
-					<Card.Subtitle>{subtitle}</Card.Subtitle>
+					<Card.Title id='card-title'>{title}</Card.Title>
+					<Card.Subtitle id='card-subtitle'>{subtitle}</Card.Subtitle>
 					<Card.Img id='card-img' src='/band-image.jpeg' />
 				</Card.Body>
 			</Card>

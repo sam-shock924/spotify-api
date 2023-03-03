@@ -33,6 +33,12 @@ body {
   text-decoration: none;
   padding: 6px;
   color: white;
+  transition: transform .3s;
+}
+
+.navbar-container a:hover {
+  transform: scale(1.05);
+  /* add the orange color to slide from middle to out on hover */
 }
 
 .navbar-container a.active {
@@ -46,14 +52,30 @@ body {
 }
 
 .artist-card {
-  width: 25%;
-  border: 2px solid var(--primary);
+  width: 22%;
+  border-bottom: 1px solid var(--primary);
+  border-top: 1px solid var(--primary);
   border-radius: 20px;
   margin: 1.5em;
   padding: 15px;
   cursor: pointer;
+  box-sizing: content-box;
+  background: var(--card-color);
+  transition: transform .3s;
+}
+
+.artist-card:hover {
+  background: var(--card-hover);
+  transform: scale(1.05);
+}
+
+#card-title {
+  margin: 5px;
 }
 
 #card-img {
-  width: 85%
+  width: 70%;
+  margin-top: 1em;
+  height: 100%;
+  border-radius: 25%;
 }

@@ -2,4 +2,6 @@
   font-family: 'Figtree', sans-serif;
   --secondary: rgb(24,24,24);
   --primary: rgb(215,103,45);
+  --card-color: rgb(51,51,51);
+  --card-hover: rgb(47,47,47);
   }
