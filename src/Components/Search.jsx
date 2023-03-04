@@ -1,5 +1,3 @@
-import {Cardstack} from './Cardstack';
-
 const Search = () => {
 	return (
 		<div>
