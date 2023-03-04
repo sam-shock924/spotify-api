@@ -2,10 +2,10 @@ import {NavLink} from 'react-router-dom';
 
 const Header = () => {
 	return (
-		<div className='header-component'>
-			<NavLink to='/'>
+		<div>
+			<NavLink className='header-component' to='/'>
 				<img id='header-logo' src='/spotify-logo.png' />
-				Spotify Showcase
+				<p>Spotify Showcase</p>
 			</NavLink>
 		</div>
 	);

@@ -6,8 +6,10 @@ const Navbar = () => {
 		<div className='root-layout'>
 			<div className='navbar-container'>
 				<Header />
-				<NavLink to='/search'>Search</NavLink>
-				<NavLink to='/random'>Random</NavLink>
+				<div className='navbar-links'>
+					<NavLink to='/search'>Search</NavLink>
+					<NavLink to='/random'>Random</NavLink>
+				</div>
 			</div>
 			<main>
 				<Outlet />
