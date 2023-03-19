@@ -1,4 +1,50 @@
+import axios from 'axios';
+import {useEffect, useState} from 'react';
+
 const Search = () => {
+	let id = 'metallica';
+	const artistEndpoint = `https://api.spotify.com/v1/artists/${id}`;
+	const tokenEndpoint = 'https://accounts.spotify.com/api/token';
+	const clientId = '974646a87ae344318fc25237004b3b81';
+	const clientSecret = 'aaad82d9a61d4a6a9c8bbbc6a8da63ef';
+	const redirectURI = 'spotify-showcase-project://callback';
+
+	const [token, setToken] = useState('');
+
+	// async function searchRequest() {
+	// 	const fetchRequest = await axios.post(tokenURL, {
+	// 		headers: {
+	// 			Content_type: 'application/x-www-form-urlencoded',
+	// 		},
+	// 		body: {
+	// 			client_id: clientId,
+	// 			client_secret: clientSecret,
+	// 			grant_type: 'client_credentials',
+	// 		},
+	// 	});
+	// 	console.log(fetchRequest);
+	// }
+	useEffect(() => {
+		let tokenParams = {
+			headers: {
+				'Content-type': 'application/x-www-form-urlencoded',
+			},
+			body: `grant_type=client_credentials&client_id=${clientId}&client_secret=${clientSecret}`,
+		};
+		async function getToken() {
+			const fetchTokenCall = await axios
+				.post(tokenEndpoint, tokenParams)
+				.then((res) => console.log(res));
+		}
+		getToken();
+	}, []);
+
+	const handleClick = () => {
+		// window.open(artistEndpoint);
+		// searchRequest();
+		// getToken();
+	};
+
 	return (
 		<div>
 			<h1>Search Page</h1>
@@ -11,8 +57,10 @@ const Search = () => {
 					<option value='album'>Album</option>
 					<option value='song'>Song</option>
 				</select>
+				<button onClick={handleClick} type='submit'>
+					Search
+				</button>
 			</div>
-			{/* <Cardstack /> */}
 		</div>
 	);
 };
