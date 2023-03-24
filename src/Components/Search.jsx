@@ -11,38 +11,28 @@ const Search = () => {
 
 	const [token, setToken] = useState('');
 
-	// async function searchRequest() {
-	// 	const fetchRequest = await axios.post(tokenURL, {
-	// 		headers: {
-	// 			Content_type: 'application/x-www-form-urlencoded',
-	// 		},
-	// 		body: {
-	// 			client_id: clientId,
-	// 			client_secret: clientSecret,
-	// 			grant_type: 'client_credentials',
-	// 		},
-	// 	});
-	// 	console.log(fetchRequest);
-	// }
-	useEffect(() => {
-		let tokenParams = {
-			headers: {
-				'Content-type': 'application/x-www-form-urlencoded',
-			},
-			body: `grant_type=client_credentials&client_id=${clientId}&client_secret=${clientSecret}`,
-		};
-		async function getToken() {
-			const fetchTokenCall = await axios
-				.post(tokenEndpoint, tokenParams)
-				.then((res) => console.log(res));
-		}
-		getToken();
-	}, []);
+	// useEffect(() => {
+	let tokenParams = {
+		headers: {
+			Content_type: 'application/x-www-form-urlencoded',
+			Authorization: `Basic <base64 encoded ${clientId}:${clientSecret}>`,
+		},
+		body: {
+			grant_type: 'client_credentials',
+		},
+	};
+	async function getToken() {
+		const fetchTokenCall = await axios
+			.post(tokenEndpoint, tokenParams)
+			.then((res) => console.log(res));
+	}
+	// 	getToken();
+	// }, []);
 
 	const handleClick = () => {
 		// window.open(artistEndpoint);
 		// searchRequest();
-		// getToken();
+		getToken();
 	};
 
 	return (
