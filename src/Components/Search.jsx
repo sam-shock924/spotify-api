@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 
 const Search = () => {
 	let id = 'metallica';
-	const artistEndpoint = `https://api.spotify.com/v1/artists/${id}`;
+	// const artistEndpoint = `https://api.spotify.com/v1/artists/${id}`;
 	const tokenEndpoint = 'https://accounts.spotify.com/api/token';
 	const clientId = '974646a87ae344318fc25237004b3b81';
 	const clientSecret = 'aaad82d9a61d4a6a9c8bbbc6a8da63ef';
@@ -13,18 +13,21 @@ const Search = () => {
 
 	// useEffect(() => {
 	let tokenParams = {
+		method: 'POST',
+		url: tokenEndpoint,
 		headers: {
-			Content_type: 'application/x-www-form-urlencoded',
-			Authorization: `Basic <base64 encoded ${clientId}:${clientSecret}>`,
+			'Content-Type': 'application/x-www-form-urlencoded',
 		},
-		body: {
+		data: new URLSearchParams({
 			grant_type: 'client_credentials',
-		},
+			client_id: clientId,
+			client_secret: clientSecret,
+		}),
 	};
 	async function getToken() {
-		const fetchTokenCall = await axios
-			.post(tokenEndpoint, tokenParams)
-			.then((res) => console.log(res));
+		const fetchTokenCall = await axios(tokenParams).then((res) =>
+			console.log(res.data)
+		);
 	}
 	// 	getToken();
 	// }, []);
