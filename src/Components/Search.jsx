@@ -11,31 +11,32 @@ const Search = () => {
 
 	const [token, setToken] = useState('');
 
-	// useEffect(() => {
-	let tokenParams = {
-		method: 'POST',
-		url: tokenEndpoint,
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded',
-		},
-		data: new URLSearchParams({
-			grant_type: 'client_credentials',
-			client_id: clientId,
-			client_secret: clientSecret,
-		}),
-	};
-	async function getToken() {
-		const fetchTokenCall = await axios(tokenParams).then((res) =>
-			console.log(res.data)
-		);
-	}
-	// 	getToken();
-	// }, []);
+	useEffect(() => {
+		let tokenParams = {
+			method: 'POST',
+			url: tokenEndpoint,
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			data: new URLSearchParams({
+				grant_type: 'client_credentials',
+				client_id: clientId,
+				client_secret: clientSecret,
+			}),
+		};
+		async function getToken() {
+			const fetchTokenCall = await axios(tokenParams).then((res) =>
+				setToken(res.data.access_token)
+			);
+		}
+		getToken();
+	}, []);
 
 	const handleClick = () => {
 		// window.open(artistEndpoint);
 		// searchRequest();
-		getToken();
+		// getToken();
+		console.log(token);
 	};
 
 	return (

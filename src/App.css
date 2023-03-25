@@ -21,8 +21,6 @@ body {
 .header-component {
   display: flex;
   align-items: center;
-  /* margin-right: auto; */
-  /* align-self: flex-start; */
 }
 
 .navbar-links {
