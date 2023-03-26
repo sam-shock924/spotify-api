@@ -2,8 +2,7 @@ import axios from 'axios';
 import {useEffect, useState} from 'react';
 
 const Search = () => {
-	let id = 'metallica';
-	// const artistEndpoint = `https://api.spotify.com/v1/artists/${id}`;
+	const artistEndpoint = `https://api.spotify.com/v1/search?query=real+friends&type=artist&limit=5`;
 	const tokenEndpoint = 'https://accounts.spotify.com/api/token';
 	const clientId = '974646a87ae344318fc25237004b3b81';
 	const clientSecret = 'aaad82d9a61d4a6a9c8bbbc6a8da63ef';
@@ -32,18 +31,29 @@ const Search = () => {
 		getToken();
 	}, []);
 
+	let searchParams = {
+		method: 'GET',
+		url: artistEndpoint,
+		headers: {
+			Authorization: `Bearer ${token}`,
+		},
+	};
+	async function searchRequest() {
+		const searchArtist = await axios(searchParams).then((res) =>
+			console.log(res.data)
+		);
+	}
+
 	const handleClick = () => {
-		// window.open(artistEndpoint);
-		// searchRequest();
-		// getToken();
-		console.log(token);
+		searchRequest();
+		// console.log(token);
 	};
 
 	return (
 		<div>
 			<h1>Search Page</h1>
 			<div className='search-input'>
-				<input type='search' placeholder='Search...' />
+				<input id='search-value' type='search' placeholder='Search...' />
 				<select name='default' id='select-options'>
 					Search for...
 					<option value='default'>Search for...</option>
