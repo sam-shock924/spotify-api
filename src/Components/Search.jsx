@@ -1,14 +1,16 @@
 import axios from 'axios';
 import {useEffect, useState} from 'react';
+import Output from './Output';
 
 const Search = () => {
 	const artistEndpoint = `https://api.spotify.com/v1/search?query=real+friends&type=artist&limit=5`;
 	const tokenEndpoint = 'https://accounts.spotify.com/api/token';
 	const clientId = '974646a87ae344318fc25237004b3b81';
 	const clientSecret = 'aaad82d9a61d4a6a9c8bbbc6a8da63ef';
-	const redirectURI = 'spotify-showcase-project://callback';
+	// const redirectURI = 'spotify-showcase-project://callback';
 
 	const [token, setToken] = useState('');
+	const [artistList, setArtistList] = useState([]);
 
 	useEffect(() => {
 		let tokenParams = {
@@ -39,9 +41,11 @@ const Search = () => {
 		},
 	};
 	async function searchRequest() {
-		const searchArtist = await axios(searchParams).then((res) =>
-			console.log(res.data)
-		);
+		const searchArtist = await axios(searchParams).then((res) => {
+			const artistString = res.data.artists.items;
+			setArtistList(artistString);
+			console.log(artistString);
+		});
 	}
 
 	const handleClick = () => {
@@ -65,6 +69,7 @@ const Search = () => {
 					Search
 				</button>
 			</div>
+			<Output artistList={artistList} />
 		</div>
 	);
 };
