@@ -2,8 +2,8 @@ const Output = ({artistList}) => {
 	const artists = artistList.map((band) => {
 		return (
 			<>
-				<p>{band.name}</p>
-				<p>{band.popularity}</p>
+				<h2>{band.name}</h2>
+				<h4>{band.popularity}</h4>
 			</>
 		);
 	});
