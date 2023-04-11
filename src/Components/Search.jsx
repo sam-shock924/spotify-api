@@ -1,21 +1,21 @@
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import Output from './Output';
+import {Alert} from 'react-bootstrap';
 
 const Search = () => {
-	const artistEndpoint = `https://api.spotify.com/v1/search?query=real+friends&type=artist&limit=5`;
-	const tokenEndpoint = 'https://accounts.spotify.com/api/token';
 	const clientId = '974646a87ae344318fc25237004b3b81';
 	const clientSecret = 'aaad82d9a61d4a6a9c8bbbc6a8da63ef';
-	// const redirectURI = 'spotify-showcase-project://callback';
 
 	const [token, setToken] = useState('');
-	const [artistList, setArtistList] = useState([]);
+	const [queryList, setQueryList] = useState([]);
+	const [queryType, setQueryType] = useState('');
+	const [query, setQuery] = useState('');
 
 	useEffect(() => {
 		let tokenParams = {
 			method: 'POST',
-			url: tokenEndpoint,
+			url: 'https://accounts.spotify.com/api/token',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
 			},
@@ -35,41 +35,69 @@ const Search = () => {
 
 	let searchParams = {
 		method: 'GET',
-		url: artistEndpoint,
+		url: `https://api.spotify.com/v1/search?query=${query}&type=${queryType}&limit=5`,
 		headers: {
 			Authorization: `Bearer ${token}`,
 		},
 	};
+
 	async function searchRequest() {
-		const searchArtist = await axios(searchParams).then((res) => {
-			const artistString = res.data.artists.items;
-			setArtistList(artistString);
-			console.log(artistString);
+		const searchQuery = await axios(searchParams).then((res) => {
+			// const queryString = res.data.albums.items;
+			const queryString = res.data[queryType + 's'].items;
+			setQueryList(queryString);
+			console.log(queryString);
 		});
 	}
 
-	const handleClick = () => {
+	const handleQueryType = (e) => {
+		setQueryType(e.target.value);
+	};
+
+	const handleQuery = (e) => {
+		if (e.target.value !== 'placeholder') {
+			setQuery(e.target.value);
+			console.log(e.target.value);
+		} else {
+			<Alert variant='danger'>Please select an option!</Alert>;
+		}
+	};
+
+	const handleClick = (e) => {
+		e.preventDefault();
 		searchRequest();
-		// console.log(token);
+		console.log(query);
+		//fix later: clear search field on submit
 	};
 
 	return (
 		<div>
 			<h1>Search Page</h1>
-			<div className='search-input'>
-				<input id='search-value' type='search' placeholder='Search...' />
-				<select name='default' id='select-options'>
+			<form className='search-input'>
+				<input
+					id='search-value'
+					type='text'
+					value={query}
+					onChange={handleQuery}
+					placeholder='Search...'
+				/>
+				<select
+					value={queryType}
+					onChange={handleQueryType}
+					name='default'
+					id='select-options'
+				>
 					Search for...
-					<option value='default'>Search for...</option>
+					<option value='placeholder'>Search for...</option>
 					<option value='artist'>Artist</option>
 					<option value='album'>Album</option>
-					<option value='song'>Song</option>
+					<option value='track'>Song</option>
 				</select>
 				<button onClick={handleClick} type='submit'>
 					Search
 				</button>
-			</div>
-			<Output artistList={artistList} />
+			</form>
+			<Output queryList={queryList} />
 		</div>
 	);
 };

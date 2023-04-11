@@ -1,15 +1,14 @@
-const Output = ({artistList}) => {
-	const artists = artistList.map((band) => {
+const Output = ({queryList}) => {
+	const query = queryList.map((query) => {
 		return (
 			<>
-				<h2>{band.name}</h2>
-				<h4>{band.popularity}</h4>
+				<h2>{query.name}</h2>
 			</>
 		);
 	});
 	return (
 		<div>
-			<p>{artists}</p>
+			<p>{query}</p>
 		</div>
 	);
 };
