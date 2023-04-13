@@ -1,10 +1,14 @@
 import {Cardstack} from './Cardstack';
 
-const Home = () => {
+const Home = ({url}) => {
+	const handleClick = () => {
+		window.open(url);
+	};
+
 	return (
 		<div>
 			<h1>Home Page</h1>
-			<Cardstack />
+			<Cardstack onClick={handleClick} />
 		</div>
 	);
 };
