@@ -1,4 +1,16 @@
-#output-card-image {
-    width: 200px;
-    aspect-ratio: 2/3;
+.search-card {
+    width: fit-content;
+    border-bottom: 1px solid var(--primary);
+    border-top: 1px solid var(--primary);
+    border-radius: 20px;
+    margin: 1.5em;
+    padding: 15px;
+    cursor: pointer;
+    background: var(--card-color);
+    transition: transform .3s;
+}
+
+.search-card:hover {
+    background: var(--card-hover);
+    transform: scale(1.05);
 }
