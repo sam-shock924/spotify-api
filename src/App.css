@@ -57,14 +57,15 @@ body {
 }
 
 .artist-card {
-  width: 22%;
+  /* width: 22%; */
+  width: fit-content;
   border-bottom: 1px solid var(--primary);
   border-top: 1px solid var(--primary);
   border-radius: 20px;
   margin: 1.5em;
   padding: 15px;
   cursor: pointer;
-  box-sizing: content-box;
+  /* box-sizing: content-box; */
   background: var(--card-color);
   transition: transform .3s;
 }

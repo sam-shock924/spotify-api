@@ -8,10 +8,10 @@ const ArtistCard = ({title, subtitle, url}) => {
 	return (
 		<div className='artist-card'>
 			<Card onClick={handleClick}>
+				<Card.Img id='card-img' src='/band-image.jpeg' />
 				<Card.Body>
 					<Card.Title id='card-title'>{title}</Card.Title>
 					<Card.Subtitle id='card-subtitle'>{subtitle}</Card.Subtitle>
-					<Card.Img id='card-img' src='/band-image.jpeg' />
 				</Card.Body>
 			</Card>
 		</div>

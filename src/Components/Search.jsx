@@ -1,7 +1,6 @@
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import Output from './Output';
-import {Alert} from 'react-bootstrap';
 
 const Search = () => {
 	const clientId = '974646a87ae344318fc25237004b3b81';
@@ -43,7 +42,6 @@ const Search = () => {
 
 	async function searchRequest() {
 		const searchQuery = await axios(searchParams).then((res) => {
-			// const queryString = res.data.albums.items;
 			const queryString = res.data[queryType + 's'].items;
 			setQueryList(queryString);
 			console.log(queryString);
@@ -58,8 +56,6 @@ const Search = () => {
 		if (e.target.value !== 'placeholder') {
 			setQuery(e.target.value);
 			console.log(e.target.value);
-		} else {
-			<Alert variant='danger'>Please select an option!</Alert>;
 		}
 	};
 
