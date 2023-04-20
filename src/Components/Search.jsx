@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import Output from './Output';
+import Alert from 'react-bootstrap/Alert';
 
 const Search = () => {
 	const clientId = '974646a87ae344318fc25237004b3b81';
