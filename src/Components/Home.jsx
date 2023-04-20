@@ -1,5 +1,3 @@
-// import {Cardstack} from './Cardstack';
-// import ArtistCard from './Card';
 import {Cardstack} from './Cardstack';
 
 const Home = () => {
@@ -35,18 +33,6 @@ const Home = () => {
 			url: 'https://open.spotify.com/artist/1P1y4wp6V0CwjhGcXPKgAu?si=YfAbZprmTneA3JkBbIejfg',
 		},
 	];
-
-	// const cardList = artistInfo.map((artist, index) => {
-	// 	return (
-	// 		<div className='card-stack' key={index}>
-	// 			<ArtistCard
-	// 				title={artist.name}
-	// 				subtitle={artist.subtitle}
-	// 				url={artist.url}
-	// 			/>
-	// 		</div>
-	// 	);
-	// });
 
 	return (
 		<div>
