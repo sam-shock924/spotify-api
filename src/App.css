@@ -56,7 +56,7 @@ body {
   justify-content: center;
 }
 
-.artist-card {
+.artist-card, .card-stack-card{
   /* width: 22%; */
   width: fit-content;
   border-bottom: 1px solid var(--primary);
@@ -70,7 +70,8 @@ body {
   transition: transform .3s;
 }
 
-.artist-card:hover {
+.artist-card:hover,
+.card-stack-card:hover {
   background: var(--card-hover);
   transform: scale(1.05);
 }

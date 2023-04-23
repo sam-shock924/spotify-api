@@ -1,7 +1,6 @@
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import Output from './Output';
-import Alert from 'react-bootstrap/Alert';
 
 const Search = () => {
 	const clientId = '974646a87ae344318fc25237004b3b81';
@@ -54,9 +53,9 @@ const Search = () => {
 	};
 
 	const handleQuery = (e) => {
-		if (e.target.value !== 'placeholder') {
+		if (queryType !== 'placeholder') {
 			setQuery(e.target.value);
-			console.log(e.target.value);
+			console.log(queryType);
 		}
 	};
 

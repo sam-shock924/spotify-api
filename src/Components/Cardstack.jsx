@@ -1,7 +1,7 @@
-import ArtistCard from './Card';
+import Card from 'react-bootstrap/Card';
 
 export const Cardstack = () => {
-	const artistInfo = [
+	const cardInfo = [
 		{
 			name: 'Real Friends',
 			subtitle: 'subtitle for Real Friends',
@@ -34,14 +34,21 @@ export const Cardstack = () => {
 		},
 	];
 
-	const cardList = artistInfo.map((artist, index) => {
+	const cardList = cardInfo.map((card, index) => {
 		return (
 			<div className='card-stack' key={index}>
-				<ArtistCard
-					title={artist.name}
-					subtitle={artist.subtitle}
-					url={artist.url}
-				/>
+				<Card
+					className='card-stack-card'
+					onClick={() => {
+						window.open(card.url);
+					}}
+				>
+					<Card.Body>
+						<Card.Title id='card-title'>{card.name}</Card.Title>
+						{/* <Card.Subtitle id='card-subtitle'>{card.subtitle}</Card.Subtitle> */}
+					</Card.Body>
+					{/* <Card.Img id='card-img' src='/band-image.jpeg' /> */}
+				</Card>
 			</div>
 		);
 	});
