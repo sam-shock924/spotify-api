@@ -1,5 +1,5 @@
-import Card from 'react-bootstrap/Card';
 import './Output.css';
+import ArtistCard from './Card';
 
 const Output = ({queryList}) => {
 	const queryCard = queryList.map((query) => {
@@ -7,6 +7,7 @@ const Output = ({queryList}) => {
 		let cardTitle;
 		let cardSubtitle;
 		let imageUrl;
+		let cardLink = query.external_urls.spotify;
 		if (query.type === 'track') {
 			imageUrl = query.album.images.length ? query.album.images[1].url : null;
 		} else {
@@ -21,17 +22,23 @@ const Output = ({queryList}) => {
 		}
 
 		return (
-			<Card className='search-card'>
-				{imageUrl ? (
-					<img src={imageUrl} id='search-card-image' alt={query.name} />
-				) : (
-					<p>No Image</p>
-				)}
-				<Card.Body>
-					<Card.Title id='blank-title'>{cardTitle}</Card.Title>
-					<Card.Subtitle id='blank-subtitle'>{cardSubtitle}</Card.Subtitle>
-				</Card.Body>
-			</Card>
+			<ArtistCard
+				title={cardTitle}
+				subtitle={cardSubtitle}
+				image={imageUrl}
+				url={cardLink}
+			/>
+			// <Card className='search-card'>
+			// 	{imageUrl ? (
+			// 		<img src={imageUrl} id='search-card-image' alt={query.name} />
+			// 	) : (
+			// 		<p>No Image</p>
+			// 	)}
+			// 	<Card.Body>
+			// 		<Card.Title id='blank-title'>{cardTitle}</Card.Title>
+			// 		<Card.Subtitle id='blank-subtitle'>{cardSubtitle}</Card.Subtitle>
+			// 	</Card.Body>
+			// </Card>
 		);
 	});
 	return (

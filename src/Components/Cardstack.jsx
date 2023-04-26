@@ -1,4 +1,5 @@
 import Card from 'react-bootstrap/Card';
+import ArtistCard from './Card';
 
 export const Cardstack = () => {
 	const cardInfo = [
@@ -37,18 +38,19 @@ export const Cardstack = () => {
 	const cardList = cardInfo.map((card, index) => {
 		return (
 			<div className='card-stack' key={index}>
-				<Card
+				<ArtistCard title={card.name} subtitle={card.subtitle} url={card.url} />
+				{/* <Card
 					className='card-stack-card'
 					onClick={() => {
 						window.open(card.url);
 					}}
-				>
-					<Card.Body>
-						<Card.Title id='card-title'>{card.name}</Card.Title>
-						{/* <Card.Subtitle id='card-subtitle'>{card.subtitle}</Card.Subtitle> */}
-					</Card.Body>
-					{/* <Card.Img id='card-img' src='/band-image.jpeg' /> */}
-				</Card>
+				> */}
+				{/* <Card.Body>
+						<Card.Title id='card-title'>{card.name}</Card.Title> */}
+				{/* <Card.Subtitle id='card-subtitle'>{card.subtitle}</Card.Subtitle> */}
+				{/* </Card.Body> */}
+				{/* <Card.Img id='card-img' src='/band-image.jpeg' /> */}
+				{/* </Card> */}
 			</div>
 		);
 	});

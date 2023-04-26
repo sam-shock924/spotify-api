@@ -1,14 +1,14 @@
 import Card from 'react-bootstrap/Card';
 
-const ArtistCard = ({title, subtitle, url}) => {
-	const handleClick = () => {
-		window.open(url);
-	};
-
+const ArtistCard = ({title, subtitle, url, image}) => {
 	return (
 		<div className='artist-card'>
-			<Card onClick={handleClick}>
-				<Card.Img id='card-img' src='/band-image.jpeg' />
+			<Card
+				onClick={() => {
+					window.open(url);
+				}}
+			>
+				<Card.Img id='card-img' src={image} />
 				<Card.Body>
 					<Card.Title id='card-title'>{title}</Card.Title>
 					<Card.Subtitle id='card-subtitle'>{subtitle}</Card.Subtitle>

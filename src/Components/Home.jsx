@@ -1,5 +1,6 @@
-import {useState} from 'react';
 import {Cardstack} from './Cardstack';
+// import ArtistCard from './Card';
+// import {useState} from 'react';
 
 const Home = () => {
 	// const [cardInfo, setCardInfo] = useState([
