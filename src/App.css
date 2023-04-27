@@ -78,11 +78,11 @@ body {
 
 #card-title {
   margin: 5px;
+  font-size: 1.25rem;
 }
 
 #card-img {
   width: 70%;
   margin-top: 1em;
   height: 100%;
-  border-radius: 25%;
 }

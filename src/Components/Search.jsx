@@ -44,7 +44,7 @@ const Search = () => {
 		const searchQuery = await axios(searchParams).then((res) => {
 			const queryString = res.data[queryType + 's'].items;
 			setQueryList(queryString);
-			console.log(queryString);
+			// console.log(queryString);
 		});
 	}
 
@@ -55,7 +55,7 @@ const Search = () => {
 	const handleQuery = (e) => {
 		if (queryType !== 'placeholder') {
 			setQuery(e.target.value);
-			console.log(queryType);
+			// console.log(queryType);
 		}
 	};
 

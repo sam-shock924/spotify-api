@@ -28,17 +28,6 @@ const Output = ({queryList}) => {
 				image={imageUrl}
 				url={cardLink}
 			/>
-			// <Card className='search-card'>
-			// 	{imageUrl ? (
-			// 		<img src={imageUrl} id='search-card-image' alt={query.name} />
-			// 	) : (
-			// 		<p>No Image</p>
-			// 	)}
-			// 	<Card.Body>
-			// 		<Card.Title id='blank-title'>{cardTitle}</Card.Title>
-			// 		<Card.Subtitle id='blank-subtitle'>{cardSubtitle}</Card.Subtitle>
-			// 	</Card.Body>
-			// </Card>
 		);
 	});
 	return (

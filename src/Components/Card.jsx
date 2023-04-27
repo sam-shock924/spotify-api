@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 
-const ArtistCard = ({title, subtitle, url, image}) => {
+const ArtistCard = ({title, subtitle, url, image, cardId}) => {
 	return (
 		<div className='artist-card'>
 			<Card
