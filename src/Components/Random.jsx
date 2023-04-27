@@ -45,14 +45,23 @@ const Random = () => {
 		const tracks = await axios(searchParams).then((res) => res.data.tracks);
 		const index = Math.floor(Math.random() * tracks.length);
 		const randomSong = tracks[index];
-		setNewCardUrl(tracks.external_urls.spotify);
+		setNewCardUrl(randomSong.external_urls.spotify);
 		console.log(randomSong);
+		console.log(newCardUrl);
 	}
 
 	return (
 		<div>
 			<h1>Random Page</h1>
 			<h3>Click on Artist for a random song!</h3>
+			<button onClick={getRandomSong}>change me</button>
+			<button
+				onClick={() => {
+					window.open(newCardUrl);
+				}}
+			>
+				open me
+			</button>
 			<Cardstack onClick={getRandomSong} url={newCardUrl} />
 		</div>
 	);
