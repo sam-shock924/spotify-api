@@ -8,6 +8,7 @@ const Random = () => {
 	const clientSecret = 'aaad82d9a61d4a6a9c8bbbc6a8da63ef';
 	const [token, setToken] = useState('');
 	const [newCardUrl, setNewCardUrl] = useState('');
+	const [newCard, setNewCard] = useState(<></>);
 
 	useEffect(() => {
 		let tokenParams = {
@@ -48,6 +49,15 @@ const Random = () => {
 		setNewCardUrl(randomSong.external_urls.spotify);
 		console.log(randomSong);
 		console.log(newCardUrl);
+		const newCardElement = (
+			<ArtistCard
+				title={randomSong.name}
+				subtitle={randomSong.album.name}
+				url={newCardUrl}
+				image={randomSong.album.images[1].url}
+			/>
+		);
+		setNewCard(newCardElement);
 	}
 
 	return (
@@ -55,6 +65,7 @@ const Random = () => {
 			<h1>Random Page</h1>
 			<h3>Click on Artist for a random song!</h3>
 			<button onClick={getRandomSong}>change me</button>
+
 			<button
 				onClick={() => {
 					window.open(newCardUrl);
@@ -62,6 +73,7 @@ const Random = () => {
 			>
 				open me
 			</button>
+			{newCard}
 			<Cardstack onClick={getRandomSong} url={newCardUrl} />
 		</div>
 	);
