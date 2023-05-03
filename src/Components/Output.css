@@ -10,6 +10,14 @@
     transition: transform .3s;
 }
 
+.card-stack-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 10px;
+    justify-items: center;
+}
+
 .search-card:hover {
     background: var(--card-hover);
     transform: scale(1.05);

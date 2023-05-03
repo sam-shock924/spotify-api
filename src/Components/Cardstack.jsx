@@ -61,5 +61,5 @@ export const Cardstack = () => {
 		);
 	});
 
-	return <div>{cardList}</div>;
+	return <div className='card-stack-container'>{cardList}</div>;
 };

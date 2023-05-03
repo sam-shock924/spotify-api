@@ -1,0 +1,47 @@
+.search-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    margin-right: 10px;
+}
+
+select {
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-right: 10px;
+}
+
+button[type="submit"] {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary-hover);
+}

@@ -3,7 +3,6 @@ import ArtistCard from './Card';
 
 const Output = ({queryList}) => {
 	const queryCard = queryList.map((query) => {
-		console.log(query);
 		let cardTitle;
 		let cardSubtitle;
 		let imageUrl;
@@ -32,7 +31,7 @@ const Output = ({queryList}) => {
 	});
 	return (
 		<div>
-			<p>{queryCard}</p>
+			<p className='card-stack-container'>{queryCard}</p>
 		</div>
 	);
 };

@@ -1,0 +1,32 @@
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform .3s;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+    transform: scale(1.05);
+}
+.button-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+    padding: 15px;
+    max-width: 600px;
+}
+
+.new-card {
+    display: inline-block;
+    margin: 0 auto;
+    text-align: center;
+}

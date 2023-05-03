@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {useEffect, useState} from 'react';
 import Output from './Output';
+import './Search.css';
 
 const Search = () => {
 	const clientId = '974646a87ae344318fc25237004b3b81';
@@ -44,7 +45,6 @@ const Search = () => {
 		const searchQuery = await axios(searchParams).then((res) => {
 			const queryString = res.data[queryType + 's'].items;
 			setQueryList(queryString);
-			// console.log(queryString);
 		});
 	}
 
@@ -55,14 +55,12 @@ const Search = () => {
 	const handleQuery = (e) => {
 		if (queryType !== 'placeholder') {
 			setQuery(e.target.value);
-			// console.log(queryType);
 		}
 	};
 
 	const handleClick = (e) => {
 		e.preventDefault();
 		searchRequest();
-		console.log(query);
 		//fix later: clear search field on submit
 	};
 
