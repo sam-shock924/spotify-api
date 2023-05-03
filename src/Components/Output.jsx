@@ -8,9 +8,17 @@ const Output = ({queryList}) => {
 		let imageUrl;
 		let cardLink = query.external_urls.spotify;
 		if (query.type === 'track') {
-			imageUrl = query.album.images.length ? query.album.images[1].url : null;
+			imageUrl = query.album.images.length ? (
+				query.album.images[1].url
+			) : (
+				<img src='/no-image.png' />
+			);
 		} else {
-			imageUrl = query.images.length ? query.images[1].url : null;
+			imageUrl = query.images.length ? (
+				query.images[1].url
+			) : (
+				<img src='/no-image.png' />
+			);
 		}
 
 		if (query.type === 'artist') {
