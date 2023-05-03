@@ -50,6 +50,7 @@ export const Cardstack = () => {
 		return (
 			<div className='card-stack' key={index}>
 				<ArtistCard
+					className='card-stack-card'
 					title={card.name}
 					subtitle={card.subtitle}
 					url={card.url}
